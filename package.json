@@ -1,0 +1,25 @@
+{
+  "name": "react-firebase-app",
+  "version": "1.0.0",
+  "description": "React Firebase Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohamedsamara/React-Firebase-App.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "firebase",
+    "sass"
+  ],
+  "author": "Mohamed Samara (https://github.com/mohamedsamara)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohamedsamara/React-Firebase-App/issues"
+  },
+  "homepage": "https://github.com/mohamedsamara/React-Firebase-App"
+}
