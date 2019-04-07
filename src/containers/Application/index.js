@@ -5,27 +5,36 @@
  */
 
 import React from 'react';
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import { Switch, Route } from 'react-router-dom';
+
+import actions from '../../actions';
 
 // routes
 import LoginPage from '../Login';
 import SignupPage from '../Signup';
-import HomePage from '../HomePage';
+import HomePage from '../Homepage';
 
-export class Application extends React.Component {
+export class Application extends React.PureComponent {
   componentDidMount() {}
 
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route exact path='/' component={HomePage} />
-          <Route path='/login' component={LoginPage} />
-          <Route path='/signup' component={SignupPage} />
-        </Switch>
-      </Router>
+      <Switch>
+        <Route exact path='/' component={HomePage} />
+        <Route path='/login' component={LoginPage} />
+        <Route path='/signup' component={SignupPage} />
+      </Switch>
     );
   }
 }
 
-export default Application;
+const mapStateToProps = state => {
+  return {};
+};
+
+export default connect(
+  mapStateToProps,
+  actions
+)(Application);

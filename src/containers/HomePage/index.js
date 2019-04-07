@@ -1,15 +1,27 @@
-/*
+/**
  *
- * HomePage
+ * Homepage
  *
  */
 
 import React from 'react';
+import { connect } from 'react-redux';
 
-export class HomePage extends React.Component {
+import actions from '../../actions';
+
+export class Homepage extends React.PureComponent {
+  componentDidMount() {}
+
   render() {
     return <div>HomePage</div>;
   }
 }
 
-export default HomePage;
+const mapStateToProps = state => {
+  return {};
+};
+
+export default connect(
+  mapStateToProps,
+  actions
+)(Homepage);

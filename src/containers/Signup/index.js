@@ -5,11 +5,21 @@
  */
 
 import React from 'react';
+import { connect } from 'react-redux';
 
-export class Signup extends React.Component {
+import actions from '../../actions';
+
+export class Signup extends React.PureComponent {
   render() {
     return <div>Signup </div>;
   }
 }
 
-export default Signup;
+const mapStateToProps = state => {
+  return {};
+};
+
+export default connect(
+  mapStateToProps,
+  actions
+)(Signup);
