@@ -6,7 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const commonPaths = require('./paths');
 
 module.exports = {
-  entry: [commonPaths.entryPath],
+  entry: ['@babel/polyfill', commonPaths.entryPath],
   module: {
     rules: [
       {
@@ -49,7 +49,10 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx'],
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    }
   },
   plugins: [
     new webpack.ProgressPlugin(),
