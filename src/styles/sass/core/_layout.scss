@@ -31,33 +31,8 @@ body {
 }
 
 .wrapper {
+  text-align: center;
   padding-top: 30px;
-}
-
-.main {
-  min-height: 1000px;
-  margin-top: 40px;
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-  flex: 1 0 auto;
-
-  @include media-breakpoint-up(sm) {
-    max-width: 540px;
-  }
-
-  @include media-breakpoint-up(md) {
-    max-width: 720px;
-  }
-
-  @include media-breakpoint-up(lg) {
-    max-width: 960px;
-  }
-  @include media-breakpoint-up(xl) {
-    max-width: 1140px;
-  }
 }
 
 i {
