@@ -11,6 +11,7 @@ import * as homepage from './containers/Homepage/actions';
 import * as signup from './containers/Signup/actions';
 import * as login from './containers/Login/actions';
 import * as navigation from './containers/Navigation/actions';
+import * as firebase from './containers/Firebase/actions';
 
 export default function mapDispatchToProps(dispatch) {
   return bindActionCreators(
@@ -19,7 +20,8 @@ export default function mapDispatchToProps(dispatch) {
       ...homepage,
       ...signup,
       ...login,
-      ...navigation
+      ...navigation,
+      ...firebase
     },
     dispatch
   );

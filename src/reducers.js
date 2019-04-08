@@ -13,6 +13,7 @@ import homepageReducer from './containers/Homepage/reducer';
 import signupReducer from './containers/Signup/reducer';
 import loginReducer from './containers/Login/reducer';
 import navigationReducer from './containers/Navigation/reducer';
+import firebaseReducer from './containers/Firebase/reducer';
 
 const createReducer = history =>
   combineReducers({
@@ -21,7 +22,8 @@ const createReducer = history =>
     homepage: homepageReducer,
     signup: signupReducer,
     login: loginReducer,
-    navigation: navigationReducer
+    navigation: navigationReducer,
+    firebase: firebaseReducer
   });
 
 export default createReducer;
