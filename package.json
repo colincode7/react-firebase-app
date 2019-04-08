@@ -58,6 +58,7 @@
   },
   "dependencies": {
     "@hot-loader/react-dom": "^16.8.4",
+    "bootstrap": "^4.3.1",
     "connected-react-router": "^6.3.2",
     "history": "^4.7.2",
     "react": "^16.8.4",

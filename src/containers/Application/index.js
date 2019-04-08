@@ -18,14 +18,20 @@ import HomePage from '../Homepage';
 
 export class Application extends React.PureComponent {
   componentDidMount() {}
-
+  application;
   render() {
     return (
-      <Switch>
-        <Route exact path='/' component={HomePage} />
-        <Route path='/login' component={LoginPage} />
-        <Route path='/signup' component={SignupPage} />
-      </Switch>
+      <div className='application'>
+        <main className='main'>
+          <div className='wrapper'>
+            <Switch>
+              <Route exact path='/' component={HomePage} />
+              <Route path='/login' component={LoginPage} />
+              <Route path='/signup' component={SignupPage} />
+            </Switch>
+          </div>
+        </main>
+      </div>
     );
   }
 }
