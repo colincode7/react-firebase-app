@@ -6,8 +6,8 @@
 
 import { TOGGLE_MENU } from './constants';
 
-export function toggleMenu() {
+export const toggleMenu = () => {
   return {
     type: TOGGLE_MENU
   };
-}
+};

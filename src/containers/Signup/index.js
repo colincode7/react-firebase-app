@@ -11,19 +11,17 @@ import { Row, Col } from 'reactstrap';
 
 import actions from '../../actions';
 import Input from '../../components/Input';
+import Message from '../../components/Message';
 
 export class Signup extends React.PureComponent {
   render() {
-    const {
-      signupFormData,
-      signupChange,
-      doCreateUserWithEmailAndPassword
-    } = this.props;
+    const { signupFormData, signupError, signupChange, signUp } = this.props;
 
     return (
       <div className='signup-form'>
         <h1>SignUp</h1>
         <hr />
+        {signupError != null && <Message error={signupError} />}
         <Row>
           <Col xs='12' md='12'>
             <Input
@@ -32,6 +30,30 @@ export class Signup extends React.PureComponent {
               name={'email'}
               placeholder={'Please Enter Your Email'}
               value={signupFormData.email}
+              onInputChange={(name, value) => {
+                signupChange(name, value);
+              }}
+            />
+          </Col>
+          <Col xs='12' md='12'>
+            <Input
+              type={'text'}
+              label={'First Name'}
+              name={'firstName'}
+              placeholder={'Please Enter Your First Name'}
+              value={signupFormData.firstName}
+              onInputChange={(name, value) => {
+                signupChange(name, value);
+              }}
+            />
+          </Col>
+          <Col xs='12' md='12'>
+            <Input
+              type={'text'}
+              label={'Last Name'}
+              name={'lastName'}
+              placeholder={'Please Enter Your Last Name'}
+              value={signupFormData.lastName}
               onInputChange={(name, value) => {
                 signupChange(name, value);
               }}
@@ -54,7 +76,7 @@ export class Signup extends React.PureComponent {
             <button
               className='input-btn'
               type='submit'
-              onClick={() => doCreateUserWithEmailAndPassword(signupFormData)}
+              onClick={() => signUp()}
             >
               Sign Up
             </button>
@@ -67,7 +89,8 @@ export class Signup extends React.PureComponent {
 
 const mapStateToProps = state => {
   return {
-    signupFormData: state.signup.signupFormData
+    signupFormData: state.signup.signupFormData,
+    signupError: state.signup.signupError
   };
 };
 

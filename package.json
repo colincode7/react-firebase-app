@@ -66,8 +66,11 @@
     "react-dom": "^16.8.4",
     "react-hot-loader": "^4.8.0",
     "react-redux": "^6.0.0",
+    "react-redux-firebase": "^2.2.6",
     "react-router-dom": "^5.0.0",
     "reactstrap": "^8.0.0",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "redux-firestore": "^0.7.3",
+    "redux-thunk": "^2.3.0"
   }
 }

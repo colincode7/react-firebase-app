@@ -7,6 +7,10 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import { routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
+import thunk from 'redux-thunk';
+import { reduxFirestore, getFirestore } from 'redux-firestore';
+import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
+import firebasebConfig from './firebase';
 
 import createReducer from './reducers';
 
@@ -15,9 +19,20 @@ export const history = createBrowserHistory({
   hashType: 'noslash'
 });
 
-const middlewares = [routerMiddleware(history)];
+const middlewares = [
+  routerMiddleware(history),
+  thunk.withExtraArgument({ getFirebase, getFirestore })
+];
 
-const enhancers = [applyMiddleware(...middlewares)];
+const enhancers = [
+  applyMiddleware(...middlewares),
+  reactReduxFirebase(firebasebConfig, {
+    userProfile: 'users',
+    useFirestoreForProfile: true,
+    attachAuthIsReady: true
+  }),
+  reduxFirestore(firebasebConfig)
+];
 
 // If Redux DevTools Extension is installed use it, otherwise use Redux compose
 const composeEnhancers =
