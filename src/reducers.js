@@ -15,7 +15,7 @@ import loginReducer from './containers/Login/reducer';
 import navigationReducer from './containers/Navigation/reducer';
 import firebaseReducer from './containers/Firebase/reducer';
 
-const createReducer = history =>
+const createReducer = history =>  
   combineReducers({
     router: connectRouter(history),
     applicaiton: applicationReducer,

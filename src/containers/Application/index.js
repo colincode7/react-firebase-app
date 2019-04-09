@@ -16,9 +16,11 @@ import actions from '../../actions';
 import LoginPage from '../Login';
 import SignupPage from '../Signup';
 import HomePage from '../Homepage';
-import Page404 from '../../components/Page404';
+import Authentication from '../Authentication';
 
+import Page404 from '../../components/Page404';
 import Footer from '../../components/Footer';
+import Dashboard from '../../components/Dashboard';
 
 import Navigation from '../Navigation';
 
@@ -36,6 +38,10 @@ export class Application extends React.PureComponent {
                 <Route exact path='/' component={HomePage} />
                 <Route path='/login' component={LoginPage} />
                 <Route path='/signup' component={SignupPage} />
+                <Route
+                  path='/dashboard'
+                  component={Authentication(Dashboard)}
+                />
                 <Route path='*' component={Page404} />
               </Switch>
             </div>

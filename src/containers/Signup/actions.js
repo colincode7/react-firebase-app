@@ -4,10 +4,14 @@
  *
  */
 
-import { DEFAULT_ACTION } from './constants';
+import { SIGNUP_CHANGE } from './constants';
 
-export function defaultAction() {
+export function signupChange(name, value) {
+  let formData = {};
+  formData[name] = value;
+
   return {
-    type: DEFAULT_ACTION,
+    type: SIGNUP_CHANGE,
+    payload: formData
   };
 }

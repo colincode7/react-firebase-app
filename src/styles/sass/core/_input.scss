@@ -1,0 +1,29 @@
+// start input text styles
+.input-text {
+  width: 100%;
+  padding: 10px;
+  border: $border-default;
+}
+
+.input-box {
+  margin: 10px;
+}
+
+.input-box label {
+  margin: 5px;
+  color: $gray;
+}
+
+// end input text styles
+
+// start input button styles
+.input-btn {
+  background-color: $theme-blue;
+  border: none;
+  color: white;
+  padding: 15px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+// end input button styles

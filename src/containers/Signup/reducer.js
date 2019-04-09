@@ -4,14 +4,23 @@
  *
  */
 
-import { DEFAULT_ACTION } from './constants';
+import { SIGNUP_CHANGE } from './constants';
 
-const initialState = {};
+const initialState = {
+  signupFormData: {
+    email: '',
+    password: ''
+  }
+};
 
 const signupReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
-    case DEFAULT_ACTION:
+    case SIGNUP_CHANGE:
+      newState = {
+        ...state,
+        signupFormData: { ...state.signupFormData, ...action.payload }
+      };
       return newState;
     default:
       return state;

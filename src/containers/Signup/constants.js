@@ -4,4 +4,4 @@
  *
  */
 
-export const DEFAULT_ACTION = 'src/Signup/DEFAULT_ACTION';
+export const SIGNUP_CHANGE = 'src/Signup/SIGNUP_CHANGE';

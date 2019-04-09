@@ -11,7 +11,6 @@ import { ConnectedRouter } from 'connected-react-router';
 
 import store, { history } from './store';
 
-import Firebase, { FirebaseContext } from './containers/Firebase';
 import Application from './containers/Application';
 
 // Import application sass styles
@@ -19,11 +18,9 @@ import './styles/sass/style.scss';
 
 const app = () => (
   <Provider store={store}>
-    <FirebaseContext.Provider value={new Firebase()}>
-      <ConnectedRouter history={history}>
-        <Application />
-      </ConnectedRouter>
-    </FirebaseContext.Provider>
+    <ConnectedRouter history={history}>
+      <Application />
+    </ConnectedRouter>
   </Provider>
 );
 
