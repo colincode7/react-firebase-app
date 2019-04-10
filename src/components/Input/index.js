@@ -17,6 +17,7 @@ const Input = props => {
     <div className='input-box'>
       <label>{label}</label>
       <input
+        autoComplete='off'
         type={type}
         onChange={e => {
           onChange(e);
@@ -31,7 +32,3 @@ const Input = props => {
 };
 
 export default Input;
-
-// _changeHandler(event: Function, fieldName: string) {
-//   return this.props.handleChange(event.target.value, fieldName);
-// }

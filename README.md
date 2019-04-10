@@ -1,5 +1,7 @@
 # React Firebase App
 
+![React Firebase App](/src/images/React-Firebase.gif)
+
 ## Install
 
 Some basic Git commands are:
