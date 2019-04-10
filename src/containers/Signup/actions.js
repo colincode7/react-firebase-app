@@ -4,6 +4,9 @@
  *
  */
 
+import { push } from 'connected-react-router';
+import { success, error, info } from 'react-notification-system-redux';
+
 import { SIGNUP_CHANGE, SIGNUP_SUCCESS, SIGNUP_ERROR } from './constants';
 
 export const signupChange = (name, value) => {
@@ -23,6 +26,18 @@ export const signUp = () => {
 
     const user = getState().signup.signupFormData;
 
+    const successfulOptions = {
+      title: 'Hey, Thank you for signing up',
+      position: 'tr',
+      autoDismiss: 1
+    };
+
+    const unsuccessfulOptions = {
+      title: 'Hey, Please try to signup again!',
+      position: 'tr',
+      autoDismiss: 1
+    };
+
     firebase
       .auth()
       .createUserWithEmailAndPassword(user.email, user.password)
@@ -38,9 +53,12 @@ export const signUp = () => {
       })
       .then(() => {
         dispatch({ type: 'SIGNUP_SUCCESS' });
+        dispatch(success(successfulOptions));
+        dispatch(push('/dashboard'));
       })
-      .catch(error => {
-        dispatch({ type: 'SIGNUP_ERROR', error });
+      .catch(err => {
+        dispatch({ type: 'SIGNUP_ERROR', err });
+        dispatch(error(unsuccessfulOptions));
       });
   };
 };

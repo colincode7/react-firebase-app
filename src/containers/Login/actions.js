@@ -5,6 +5,7 @@
  */
 
 import { push } from 'connected-react-router';
+import { success, error, info } from 'react-notification-system-redux';
 
 import {
   LOGIN_CHANGE,
@@ -29,17 +30,32 @@ export const login = () => {
 
     const user = getState().login.loginFormData;
 
+    const successfulOptions = {
+      title: "Hey, it's good to see you!",
+      position: 'tr',
+      autoDismiss: 1
+    };
+
+    const unsuccessfulOptions = {
+      title: 'Hey, Please try to login in again!',
+      position: 'tr',
+      autoDismiss: 1
+    };
+
     firebase
       .auth()
       .signInWithEmailAndPassword(user.email, user.password)
       .then(() => {
         dispatch({ type: 'LOGIN_SUCCESS' });
+        dispatch(success(successfulOptions));
+
         setTimeout(() => {
           dispatch(push('/dashboard'));
-        }, 1000);
+        }, 2000);
       })
-      .catch(error => {
-        dispatch({ type: 'LOGIN_ERROR', error });
+      .catch(err => {
+        dispatch({ type: 'LOGIN_ERROR', err });
+        dispatch(error(unsuccessfulOptions));
       });
   };
 };
@@ -48,11 +64,18 @@ export const signOut = () => {
   return (dispatch, getState, { getFirebase }) => {
     const firebase = getFirebase();
 
+    const notifOptions = {
+      title: 'Signed Out Successfully!',
+      position: 'tr',
+      autoDismiss: 1
+    };
+
     firebase
       .auth()
       .signOut()
       .then(() => {
         dispatch({ type: 'SIGNOUT_SUCCESS' });
+        dispatch(info(notifOptions));
       });
   };
 };

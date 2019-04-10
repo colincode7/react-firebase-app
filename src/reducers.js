@@ -8,6 +8,7 @@ import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 import { firestoreReducer } from 'redux-firestore';
 import { firebaseReducer } from 'react-redux-firebase';
+import { reducer as notifications } from 'react-notification-system-redux';
 
 // import reducers
 import applicationReducer from './containers/Application/reducer';
@@ -20,6 +21,7 @@ import authenticationReducer from './containers/Authentication/reducer';
 const createReducer = history =>
   combineReducers({
     router: connectRouter(history),
+    notifications,
     applicaiton: applicationReducer,
     homepage: homepageReducer,
     signup: signupReducer,

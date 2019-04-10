@@ -42,7 +42,7 @@ const loginReducer = (state = initialState, action) => {
     case 'LOGIN_ERROR':
       newState = {
         ...state,
-        loginError: action.error.message
+        loginError: action.err.message
       };
       return newState;
     case 'SIGNOUT_SUCCESS':

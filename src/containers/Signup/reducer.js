@@ -40,7 +40,7 @@ const signupReducer = (state = initialState, action) => {
     case 'SIGNUP_ERROR':
       newState = {
         ...state,
-        signupError: action.error.message
+        signupError: action.err.message
       };
       return newState;
     default:

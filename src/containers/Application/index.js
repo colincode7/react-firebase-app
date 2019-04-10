@@ -19,6 +19,7 @@ import HomePage from '../Homepage';
 import Dashboard from '../Dashboard';
 import Navigation from '../Navigation';
 import Authentication from '../Authentication';
+import Notification from '../Notification';
 
 import Page404 from '../../components/Page404';
 import Footer from '../../components/Footer';
@@ -29,6 +30,7 @@ export class Application extends React.PureComponent {
   render() {
     return (
       <div className='application'>
+        <Notification />
         <Navigation />
         <main className='main'>
           <Container>
