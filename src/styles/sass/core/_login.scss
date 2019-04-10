@@ -1,0 +1,14 @@
+.login-form {
+  padding: 10px;
+  border: $border-default;
+}
+
+.login-form h1 {
+  text-align: center;
+  color: $theme-blue !important;
+  font-weight: $font-weight-bold-light;
+}
+
+.log-out {
+  cursor: pointer;
+}

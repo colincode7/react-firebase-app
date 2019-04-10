@@ -15,15 +15,23 @@ export class Navigation extends React.PureComponent {
   componentDidMount() {}
 
   render() {
-    const { isMenuOpen, toggleMenu } = this.props;
+    const { isMenuOpen, toggleMenu, signOut, authentication } = this.props;
 
-    return <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />;
+    return (
+      <Header
+        authentication={authentication}
+        isMenuOpen={isMenuOpen}
+        toggleMenu={toggleMenu}
+        signOut={signOut}
+      />
+    );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    isMenuOpen: state.navigation.isMenuOpen
+    isMenuOpen: state.navigation.isMenuOpen,
+    authentication: state.firebase.auth
   };
 };
 

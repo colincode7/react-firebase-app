@@ -16,13 +16,12 @@ import actions from '../../actions';
 import LoginPage from '../Login';
 import SignupPage from '../Signup';
 import HomePage from '../Homepage';
+import Dashboard from '../Dashboard';
+import Navigation from '../Navigation';
 import Authentication from '../Authentication';
 
 import Page404 from '../../components/Page404';
 import Footer from '../../components/Footer';
-import Dashboard from '../../components/Dashboard';
-
-import Navigation from '../Navigation';
 
 export class Application extends React.PureComponent {
   componentDidMount() {}

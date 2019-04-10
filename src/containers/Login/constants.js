@@ -4,4 +4,7 @@
  *
  */
 
-export const DEFAULT_ACTION = 'src/Login/DEFAULT_ACTION';
+export const LOGIN_CHANGE = 'src/Login/LOGIN_CHANGE';
+export const SIGNOUT_SUCCESS = 'src/Login/SIGNOUT_SUCCESS';
+export const LOGIN_SUCCESS = 'src/Login/LOGIN_SUCCESS';
+export const LOGIN_ERROR = 'src/Login/LOGIN_ERROR';

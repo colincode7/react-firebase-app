@@ -28,17 +28,21 @@ const signupReducer = (state = initialState, action) => {
     case 'SIGNUP_SUCCESS':
       newState = {
         ...state,
-        signupError: null
+        signupError: null,
+        signupFormData: {
+          email: '',
+          firstName: '',
+          lastName: '',
+          password: ''
+        }
       };
       return newState;
-
     case 'SIGNUP_ERROR':
       newState = {
         ...state,
         signupError: action.error.message
       };
       return newState;
-
     default:
       return state;
   }

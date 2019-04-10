@@ -1,18 +1,55 @@
 /*
  *
- * Signup reducer
+ * Login reducer
  *
  */
 
-import { DEFAULT_ACTION } from './constants';
+import {
+  LOGIN_CHANGE,
+  LOGIN_SUCCESS,
+  LOGIN_ERROR,
+  SIGNOUT_SUCCESS
+} from './constants';
 
-const initialState = {};
+const initialState = {
+  loginFormData: {
+    email: '',
+    password: ''
+  },
+  loginError: null,
+  signoutError: null
+};
 
 const loginReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
-    case DEFAULT_ACTION:
-      newState = update(state, {});
+    case LOGIN_CHANGE:
+      newState = {
+        ...state,
+        loginFormData: { ...state.loginFormData, ...action.payload }
+      };
+      return newState;
+    case 'LOGIN_SUCCESS':
+      newState = {
+        ...state,
+        loginError: null,
+        loginFormData: {
+          email: '',
+          password: ''
+        }
+      };
+      return newState;
+    case 'LOGIN_ERROR':
+      newState = {
+        ...state,
+        loginError: action.error.message
+      };
+      return newState;
+    case 'SIGNOUT_SUCCESS':
+      newState = {
+        ...state,
+        signoutError: null
+      };
       return newState;
     default:
       return state;

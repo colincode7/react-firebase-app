@@ -15,6 +15,7 @@ import homepageReducer from './containers/Homepage/reducer';
 import signupReducer from './containers/Signup/reducer';
 import loginReducer from './containers/Login/reducer';
 import navigationReducer from './containers/Navigation/reducer';
+import authenticationReducer from './containers/Authentication/reducer';
 
 const createReducer = history =>
   combineReducers({
@@ -24,6 +25,7 @@ const createReducer = history =>
     signup: signupReducer,
     login: loginReducer,
     navigation: navigationReducer,
+    authentication: authenticationReducer,
     firestore: firestoreReducer,
     firebase: firebaseReducer
   });
