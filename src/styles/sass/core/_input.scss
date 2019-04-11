@@ -1,10 +1,38 @@
 // start input text styles
-.input-text {
+input,
+input[type='text'],
+input[type='password'] {
   width: 100%;
   padding: 10px;
   border: $border-default;
   cursor: text;
+
+  &:focus {
+    outline: none;
+    color: $focus-font-color;
+    border-color: $dark-border-color !important;
+  }
 }
+
+// end input text styles
+
+// start input button styles
+input[type='button'],
+input[type='submit'],
+input[type='reset'],
+button[type='submit'],
+button[type='reset'] {
+  padding: 10px;
+  border: none;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
+// end input button styles
 
 .input-box {
   margin: 10px;
@@ -15,16 +43,7 @@
   color: $gray;
 }
 
-// end input text styles
-
-// start input button styles
 .input-btn {
+  width: 100%;
   background-color: $theme-blue;
-  border: none;
-  color: white;
-  padding: 15px;
-  text-decoration: none;
-  cursor: pointer;
 }
-
-// end input button styles

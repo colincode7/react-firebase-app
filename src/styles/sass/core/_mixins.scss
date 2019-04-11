@@ -37,13 +37,13 @@
 }
 
 // icon styles
-@mixin icon($icon) {
+@mixin icon($icon, $width, $height) {
   background-image: $icon;
   background-position: center;
   background-repeat: no-repeat;
   cursor: pointer;
-  height: 30px;
-  width: 30px;
+  height: $width;
+  width: $height;
 }
 
 // badge styles
