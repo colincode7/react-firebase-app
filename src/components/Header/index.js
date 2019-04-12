@@ -23,7 +23,7 @@ import {
 import { Link } from 'react-router-dom';
 
 const Header = props => {
-  const { authentication, isMenuOpen, toggleMenu, signOut } = props;
+  const { authentication, user, isMenuOpen, toggleMenu, signOut } = props;
 
   return (
     <Navbar color='dark' dark expand='md'>
@@ -33,18 +33,11 @@ const Header = props => {
       <NavbarToggler onClick={toggleMenu} />
       <Collapse isOpen={isMenuOpen} navbar>
         <Nav className='ml-auto' navbar>
-          <NavItem>
-            <NavLink tag={Link} to='/login'>
-              Login
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink tag={Link} to='/signup'>
-              SignUp
-            </NavLink>
-          </NavItem>
-          {authentication.uid && (
+          {authentication.uid ? (
             <Nav navbar>
+              <NavItem>
+                <NavLink>{user.firstName}</NavLink>
+              </NavItem>
               <NavItem>
                 <NavLink tag={Link} to='/dashboard'>
                   Dashboard
@@ -52,6 +45,19 @@ const Header = props => {
               </NavItem>
               <NavItem className='log-out'>
                 <NavLink onClick={signOut}>Log Out</NavLink>
+              </NavItem>
+            </Nav>
+          ) : (
+            <Nav navbar>
+              <NavItem>
+                <NavLink tag={Link} to='/login'>
+                  Login
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} to='/signup'>
+                  SignUp
+                </NavLink>
               </NavItem>
             </Nav>
           )}

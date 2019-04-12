@@ -18,7 +18,13 @@ import SignInTwitter from '../../components/SignInTwitter';
 
 export class Login extends React.PureComponent {
   render() {
-    const { loginFormData, loginError, loginChange, login } = this.props;
+    const {
+      loginFormData,
+      loginError,
+      loginChange,
+      login,
+      signInWithGoogle
+    } = this.props;
 
     return (
       <div className='login-form'>
@@ -70,7 +76,7 @@ export class Login extends React.PureComponent {
             </div>
           </Col>
           <Col xs='12' md='5'>
-            <SignInGoogle />
+            <SignInGoogle signInWithGoogle={() => signInWithGoogle()} />
             <SignInFacebook />
             <SignInTwitter />
           </Col>

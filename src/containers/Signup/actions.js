@@ -27,7 +27,7 @@ export const signUp = () => {
     const user = getState().signup.signupFormData;
 
     const successfulOptions = {
-      title: 'Hey, Thank you for signing up',
+      title: `Hey ${user.firstName}, Thank you for signing up`,
       position: 'tr',
       autoDismiss: 1
     };
@@ -57,6 +57,58 @@ export const signUp = () => {
         dispatch(push('/dashboard'));
       })
       .catch(err => {
+        dispatch({ type: 'SIGNUP_ERROR', err });
+        dispatch(error(unsuccessfulOptions));
+      });
+  };
+};
+
+export const signInWithGoogle = () => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firebase = getFirebase();
+    const firestore = getFirestore();
+
+    const provider = new firebase.auth.GoogleAuthProvider();
+    provider.setCustomParameters({
+      prompt: 'select_account'
+    });
+
+    const unsuccessfulOptions = {
+      title: 'Hey, Please try to signin again!',
+      position: 'tr',
+      autoDismiss: 1
+    };
+
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(resp => {
+        const user = resp.user.displayName.split(' ');
+
+        firestore
+          .collection('users')
+          .doc(resp.user.uid)
+          .set({
+            firstName: user[0],
+            lastName: user[1],
+            initials: resp.user.displayName
+          });
+
+        const successfulOptions = {
+          title: `Hey ${resp.user.displayName}, Thank you for signing in`,
+          position: 'tr',
+          autoDismiss: 1
+        };
+
+        dispatch({ type: 'SIGNUP_SUCCESS' });
+        dispatch(success(successfulOptions));
+
+        setTimeout(() => {
+          dispatch(push('/dashboard'));
+        }, 2000);
+      })
+      .catch(err => {
+        console.log('err', err);
         dispatch({ type: 'SIGNUP_ERROR', err });
         dispatch(error(unsuccessfulOptions));
       });

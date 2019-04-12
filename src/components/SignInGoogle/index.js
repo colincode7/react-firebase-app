@@ -7,7 +7,14 @@
 import React from 'react';
 
 const SignInGoogle = props => {
-  return <div className='google-btn' />;
+  const { signInWithGoogle } = props;
+
+  return (
+    <div className='social-btn' onClick={signInWithGoogle}>
+      <span className='google-icon' />
+      <span className='google'>Sign In With Google</span>
+    </div>
+  );
 };
 
 export default SignInGoogle;
