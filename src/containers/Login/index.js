@@ -23,7 +23,8 @@ export class Login extends React.PureComponent {
       loginError,
       loginChange,
       login,
-      signInWithGoogle
+      signInWithGoogle,
+      signInWithFacebook
     } = this.props;
 
     return (
@@ -77,7 +78,7 @@ export class Login extends React.PureComponent {
           </Col>
           <Col xs='12' md='5'>
             <SignInGoogle signInWithGoogle={() => signInWithGoogle()} />
-            <SignInFacebook />
+            <SignInFacebook signInWithFacebook={() => signInWithFacebook()} />
             <SignInTwitter />
           </Col>
         </Row>

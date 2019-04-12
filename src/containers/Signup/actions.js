@@ -114,3 +114,51 @@ export const signInWithGoogle = () => {
       });
   };
 };
+
+export const signInWithFacebook = () => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firebase = getFirebase();
+    const firestore = getFirestore();
+
+    const provider = new firebase.auth.FacebookAuthProvider();
+
+    const unsuccessfulOptions = {
+      title: 'Hey, Please try to signin again!',
+      position: 'tr',
+      autoDismiss: 1
+    };
+
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(resp => {
+        const user = resp.user.displayName.split(' ');
+
+        firestore
+          .collection('users')
+          .doc(resp.user.uid)
+          .set({
+            firstName: user[0],
+            lastName: user[1],
+            initials: resp.user.displayName
+          });
+
+        const successfulOptions = {
+          title: `Hey ${resp.user.displayName}, Thank you for signing in`,
+          position: 'tr',
+          autoDismiss: 1
+        };
+
+        dispatch({ type: 'SIGNUP_SUCCESS' });
+        dispatch(success(successfulOptions));
+
+        setTimeout(() => {
+          dispatch(push('/dashboard'));
+        }, 2000);
+      })
+      .catch(err => {
+        dispatch({ type: 'SIGNUP_ERROR', err });
+        dispatch(error(unsuccessfulOptions));
+      });
+  };
+};
