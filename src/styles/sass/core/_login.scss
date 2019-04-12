@@ -4,39 +4,13 @@
 }
 
 .login-form h1 {
-  text-align: center;
+  padding-left: 30px;
   color: $theme-blue !important;
   font-weight: $font-weight-bold-light;
 }
 
 .log-out {
   cursor: pointer;
-}
-
-.separation {
-  @include flex();
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-
-  @include media-breakpoint-down(sm) {
-    margin: 10px 0px;
-  }
-}
-
-.separation p {
-  margin: 10px;
-  font-weight: $font-weight-bold;
-}
-
-.login-separation {
-  height: 100%;
-  border-left: 1px solid $blue;
-  border-width: 2px;
-
-  @include media-breakpoint-down(sm) {
-    border-left: none;
-  }
 }
 
 .social-btn {

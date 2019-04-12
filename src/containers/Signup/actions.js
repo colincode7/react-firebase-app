@@ -7,7 +7,12 @@
 import { push } from 'connected-react-router';
 import { success, error, info } from 'react-notification-system-redux';
 
-import { SIGNUP_CHANGE, SIGNUP_SUCCESS, SIGNUP_ERROR } from './constants';
+import {
+  SIGNUP_CHANGE,
+  SIGNUP_SUCCESS,
+  SIGNUP_ERROR,
+  SET_LOADING
+} from './constants';
 
 export const signupChange = (name, value) => {
   let formData = {};
@@ -21,6 +26,7 @@ export const signupChange = (name, value) => {
 
 export const signUp = () => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
+    dispatch({ type: 'SET_LOADING' });
     const firebase = getFirebase();
     const firestore = getFirestore();
 
@@ -65,6 +71,8 @@ export const signUp = () => {
 
 export const signInWithGoogle = () => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
+    dispatch({ type: 'SET_LOADING' });
+
     const firebase = getFirebase();
     const firestore = getFirestore();
 
@@ -108,7 +116,6 @@ export const signInWithGoogle = () => {
         }, 2000);
       })
       .catch(err => {
-        console.log('err', err);
         dispatch({ type: 'SIGNUP_ERROR', err });
         dispatch(error(unsuccessfulOptions));
       });
@@ -117,6 +124,8 @@ export const signInWithGoogle = () => {
 
 export const signInWithFacebook = () => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
+    dispatch({ type: 'SET_LOADING' });
+
     const firebase = getFirebase();
     const firestore = getFirestore();
 

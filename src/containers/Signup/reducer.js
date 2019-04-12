@@ -4,7 +4,12 @@
  *
  */
 
-import { SIGNUP_CHANGE, SIGNUP_SUCCESS, SIGNUP_ERROR } from './constants';
+import {
+  SIGNUP_CHANGE,
+  SIGNUP_SUCCESS,
+  SIGNUP_ERROR,
+  SET_LOADING
+} from './constants';
 
 const initialState = {
   signupFormData: {
@@ -13,6 +18,7 @@ const initialState = {
     lastName: '',
     password: ''
   },
+  isLoading: false,
   signupError: null
 };
 
@@ -34,13 +40,21 @@ const signupReducer = (state = initialState, action) => {
           firstName: '',
           lastName: '',
           password: ''
-        }
+        },
+        isLoading: false
       };
       return newState;
     case 'SIGNUP_ERROR':
       newState = {
         ...state,
-        signupError: action.err.message
+        signupError: action.err.message,
+        isLoading: false
+      };
+      return newState;
+    case 'SET_LOADING':
+      newState = {
+        ...state,
+        isLoading: true
       };
       return newState;
     default:

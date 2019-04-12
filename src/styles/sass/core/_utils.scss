@@ -3,3 +3,44 @@
 .message-box {
   color: $theme-red;
 }
+
+// separation styles
+
+.separation {
+  @include flex();
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+
+  @include media-breakpoint-down(sm) {
+    margin: 10px 0px;
+  }
+}
+
+.separation p {
+  margin: 10px;
+  font-weight: $font-weight-bold;
+}
+
+.sub-separation {
+  height: 100%;
+  border-left: 1px solid $blue;
+  border-width: 2px;
+
+  @include media-breakpoint-down(sm) {
+    border-left: none;
+  }
+}
+
+// popup background
+
+.popup-background {
+  cursor: pointer;
+  background-color: $dark-overflow-bg;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1;
+  width: 100%;
+}

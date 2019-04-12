@@ -8,7 +8,8 @@ import {
   LOGIN_CHANGE,
   LOGIN_SUCCESS,
   LOGIN_ERROR,
-  SIGNOUT_SUCCESS
+  SIGNOUT_SUCCESS,
+  SET_LOADING
 } from './constants';
 
 const initialState = {
@@ -16,6 +17,7 @@ const initialState = {
     email: '',
     password: ''
   },
+  isLoading: false,
   loginError: null,
   signoutError: null
 };
@@ -36,7 +38,8 @@ const loginReducer = (state = initialState, action) => {
         loginFormData: {
           email: '',
           password: ''
-        }
+        },
+        isLoading: false
       };
       return newState;
     case 'LOGIN_ERROR':
@@ -48,7 +51,14 @@ const loginReducer = (state = initialState, action) => {
     case 'SIGNOUT_SUCCESS':
       newState = {
         ...state,
-        signoutError: null
+        signoutError: null,
+        isLoading: false
+      };
+      return newState;
+    case 'SET_LOADING':
+      newState = {
+        ...state,
+        isLoading: true
       };
       return newState;
     default:

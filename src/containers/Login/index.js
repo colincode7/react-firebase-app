@@ -14,7 +14,7 @@ import Input from '../../components/Input';
 import Message from '../../components/Message';
 import SignInGoogle from '../../components/SignInGoogle';
 import SignInFacebook from '../../components/SignInFacebook';
-import SignInTwitter from '../../components/SignInTwitter';
+import LoadingIndicator from '../../components/LoadingIndicator';
 
 export class Login extends React.PureComponent {
   render() {
@@ -24,11 +24,18 @@ export class Login extends React.PureComponent {
       loginChange,
       login,
       signInWithGoogle,
-      signInWithFacebook
+      signInWithFacebook,
+      isLoading
     } = this.props;
 
     return (
       <div className='login-form'>
+        {isLoading && (
+          <div>
+            <LoadingIndicator />
+            <div className='popup-background' />
+          </div>
+        )}
         <h1>Login</h1>
         <hr />
         {loginError != null && <Message error={loginError} />}
@@ -71,15 +78,14 @@ export class Login extends React.PureComponent {
           </Col>
           <Col xs='12' md='1'>
             <div className='separation'>
-              <div className='login-separation' />
+              <div className='sub-separation' />
               <p>OR</p>
-              <div className='login-separation' />
+              <div className='sub-separation' />
             </div>
           </Col>
           <Col xs='12' md='5'>
             <SignInGoogle signInWithGoogle={() => signInWithGoogle()} />
             <SignInFacebook signInWithFacebook={() => signInWithFacebook()} />
-            <SignInTwitter />
           </Col>
         </Row>
       </div>
@@ -90,7 +96,8 @@ export class Login extends React.PureComponent {
 const mapStateToProps = state => {
   return {
     loginFormData: state.login.loginFormData,
-    loginError: state.login.loginError
+    loginError: state.login.loginError,
+    isLoading: state.login.isLoading
   };
 };
 
