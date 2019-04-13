@@ -8,7 +8,7 @@ import {
   SIGNUP_CHANGE,
   SIGNUP_SUCCESS,
   SIGNUP_ERROR,
-  SET_LOADING
+  SET_SIGNUP_LOADING
 } from './constants';
 
 const initialState = {
@@ -51,7 +51,7 @@ const signupReducer = (state = initialState, action) => {
         isLoading: false
       };
       return newState;
-    case 'SET_LOADING':
+    case 'SET_SIGNUP_LOADING':
       newState = {
         ...state,
         isLoading: true

@@ -12,7 +12,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_ERROR,
   SIGNOUT_SUCCESS,
-  SET_LOADING
+  SET_LOGIN_LOADING
 } from './constants';
 
 export const loginChange = (name, value) => {
@@ -28,7 +28,7 @@ export const loginChange = (name, value) => {
 export const login = () => {
   return (dispatch, getState, { getFirebase }) => {
     const firebase = getFirebase();
-    dispatch({ type: 'SET_LOADING' });
+    dispatch({ type: 'SET_LOGIN_LOADING' });
 
     const user = getState().login.loginFormData;
 

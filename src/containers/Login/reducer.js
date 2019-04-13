@@ -9,7 +9,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_ERROR,
   SIGNOUT_SUCCESS,
-  SET_LOADING
+  SET_LOGIN_LOADING
 } from './constants';
 
 const initialState = {
@@ -55,7 +55,7 @@ const loginReducer = (state = initialState, action) => {
         isLoading: false
       };
       return newState;
-    case 'SET_LOADING':
+    case 'SET_LOGIN_LOADING':
       newState = {
         ...state,
         isLoading: true

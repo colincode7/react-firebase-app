@@ -24,7 +24,7 @@
 
 .sub-separation {
   height: 100%;
-  border-left: 1px solid $blue;
+  border-left: 1px solid $theme-light-blue;
   border-width: 2px;
 
   @include media-breakpoint-down(sm) {

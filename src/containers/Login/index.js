@@ -8,25 +8,27 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { Row, Col } from 'reactstrap';
+import { Redirect } from 'react-router-dom';
 
 import actions from '../../actions';
 import Input from '../../components/Input';
 import Message from '../../components/Message';
-import SignInGoogle from '../../components/SignInGoogle';
-import SignInFacebook from '../../components/SignInFacebook';
 import LoadingIndicator from '../../components/LoadingIndicator';
+
+import SignupProvider from '../SignupProvider';
 
 export class Login extends React.PureComponent {
   render() {
     const {
+      authentication,
       loginFormData,
       loginError,
       loginChange,
       login,
-      signInWithGoogle,
-      signInWithFacebook,
       isLoading
     } = this.props;
+
+    if (authentication.uid) return <Redirect to='/' />;
 
     return (
       <div className='login-form'>
@@ -84,8 +86,7 @@ export class Login extends React.PureComponent {
             </div>
           </Col>
           <Col xs='12' md='5'>
-            <SignInGoogle signInWithGoogle={() => signInWithGoogle()} />
-            <SignInFacebook signInWithFacebook={() => signInWithFacebook()} />
+            <SignupProvider />
           </Col>
         </Row>
       </div>
@@ -95,6 +96,7 @@ export class Login extends React.PureComponent {
 
 const mapStateToProps = state => {
   return {
+    authentication: state.firebase.auth,
     loginFormData: state.login.loginFormData,
     loginError: state.login.loginError,
     isLoading: state.login.isLoading
