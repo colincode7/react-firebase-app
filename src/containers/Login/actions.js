@@ -12,7 +12,8 @@ import {
   LOGIN_SUCCESS,
   LOGIN_ERROR,
   SIGNOUT_SUCCESS,
-  SET_LOGIN_LOADING
+  SET_LOGIN_LOADING,
+  HIDE_LOGIN_ERROR
 } from './constants';
 
 export const loginChange = (name, value) => {
@@ -58,6 +59,10 @@ export const login = () => {
       .catch(err => {
         dispatch({ type: 'LOGIN_ERROR', err });
         dispatch(error(unsuccessfulOptions));
+
+        setTimeout(() => {
+          dispatch({ type: 'HIDE_LOGIN_ERROR' });
+        }, 3000);
       });
   };
 };

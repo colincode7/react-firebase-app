@@ -9,7 +9,8 @@ import {
   LOGIN_SUCCESS,
   LOGIN_ERROR,
   SIGNOUT_SUCCESS,
-  SET_LOGIN_LOADING
+  SET_LOGIN_LOADING,
+  HIDE_LOGIN_ERROR
 } from './constants';
 
 const initialState = {
@@ -45,7 +46,8 @@ const loginReducer = (state = initialState, action) => {
     case 'LOGIN_ERROR':
       newState = {
         ...state,
-        loginError: action.err.message
+        loginError: action.err.message,
+        isLoading: false
       };
       return newState;
     case 'SIGNOUT_SUCCESS':
@@ -59,6 +61,12 @@ const loginReducer = (state = initialState, action) => {
       newState = {
         ...state,
         isLoading: true
+      };
+      return newState;
+    case 'HIDE_LOGIN_ERROR':
+      newState = {
+        ...state,
+        loginError: null
       };
       return newState;
     default:

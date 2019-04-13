@@ -11,7 +11,8 @@ import {
   SIGNUP_CHANGE,
   SIGNUP_SUCCESS,
   SIGNUP_ERROR,
-  SET_SIGNUP_LOADING
+  SET_SIGNUP_LOADING,
+  HIDE_SIGNUP_ERROR
 } from './constants';
 
 export const signupChange = (name, value) => {
@@ -65,6 +66,10 @@ export const signUp = () => {
       .catch(err => {
         dispatch({ type: 'SIGNUP_ERROR', err });
         dispatch(error(unsuccessfulOptions));
+
+        setTimeout(() => {
+          dispatch({ type: 'HIDE_SIGNUP_ERROR' });
+        }, 3000);
       });
   };
 };

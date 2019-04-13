@@ -40,7 +40,7 @@ export class Signup extends React.PureComponent {
         )}
         <h1>SignUp</h1>
         <hr />
-        {signupError != null && <Message error={signupError} />}
+        {signupError != null && <Message error={signupError} type={'danger'} />}
         <Row>
           <Col xs='12' md='6'>
             <Col xs='12' md='12'>

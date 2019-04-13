@@ -40,7 +40,7 @@ export class Login extends React.PureComponent {
         )}
         <h1>Login</h1>
         <hr />
-        {loginError != null && <Message error={loginError} />}
+        {loginError != null && <Message error={loginError} type={'danger'} />}
         <Row>
           <Col xs='12' md='6'>
             <Col xs='12' md='12'>

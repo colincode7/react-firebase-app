@@ -8,7 +8,8 @@ import {
   SIGNUP_CHANGE,
   SIGNUP_SUCCESS,
   SIGNUP_ERROR,
-  SET_SIGNUP_LOADING
+  SET_SIGNUP_LOADING,
+  HIDE_SIGNUP_ERROR
 } from './constants';
 
 const initialState = {
@@ -55,6 +56,12 @@ const signupReducer = (state = initialState, action) => {
       newState = {
         ...state,
         isLoading: true
+      };
+      return newState;
+    case 'HIDE_SIGNUP_ERROR':
+      newState = {
+        ...state,
+        signupError: null
       };
       return newState;
     default:

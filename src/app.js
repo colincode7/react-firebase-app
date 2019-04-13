@@ -13,9 +13,6 @@ import store, { history } from './store';
 
 import Application from './containers/Application';
 
-// Import application sass styles
-import './styles/sass/style.scss';
-
 const app = () => (
   <Provider store={store}>
     <ConnectedRouter history={history}>

@@ -26,7 +26,13 @@ const Header = props => {
   const { authentication, user, isMenuOpen, toggleMenu, signOut } = props;
 
   return (
-    <Navbar color='dark' dark expand='md'>
+    <Navbar
+      color='light'
+      sticky={'top'}
+      className='shadow-sm py-0 border-bottom'
+      light
+      expand='md'
+    >
       <NavbarBrand tag={Link} to='/'>
         React Firebase Boilerplate
       </NavbarBrand>

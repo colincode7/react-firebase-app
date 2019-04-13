@@ -5,13 +5,16 @@
  */
 
 import React from 'react';
+import { Alert } from 'reactstrap';
 
 const Message = props => {
-  const { error } = props;
+  const { error, type } = props;
 
   return (
     <div className='message-box'>
-      <p>{error}</p>
+      <Alert color={type}>
+        <p>{error}</p>
+      </Alert>
       <hr />
     </div>
   );
