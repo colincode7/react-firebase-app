@@ -15,7 +15,7 @@ import {
 
 export const signInWithGoogle = () => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
-    dispatch({ type: 'SET_PROVIDER_LOADING' });
+    dispatch({ type: SET_PROVIDER_LOADING });
 
     const firebase = getFirebase();
     const firestore = getFirestore();
@@ -52,7 +52,7 @@ export const signInWithGoogle = () => {
           autoDismiss: 1
         };
 
-        dispatch({ type: 'SIGNUP_PROVIDER_SUCCESS' });
+        dispatch({ type: SIGNUP_PROVIDER_SUCCESS });
         dispatch(success(successfulOptions));
 
         setTimeout(() => {
@@ -60,7 +60,7 @@ export const signInWithGoogle = () => {
         }, 2000);
       })
       .catch(err => {
-        dispatch({ type: 'SIGNUP_PROVIDER_ERROR', err });
+        dispatch({ type: SIGNUP_PROVIDER_ERROR, err });
         dispatch(error(unsuccessfulOptions));
       });
   };
@@ -68,7 +68,7 @@ export const signInWithGoogle = () => {
 
 export const signInWithFacebook = () => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
-    dispatch({ type: 'SET_PROVIDER_LOADING' });
+    dispatch({ type: SET_PROVIDER_LOADING });
 
     const firebase = getFirebase();
     const firestore = getFirestore();
@@ -102,7 +102,7 @@ export const signInWithFacebook = () => {
           autoDismiss: 1
         };
 
-        dispatch({ type: 'SIGNUP_PROVIDER_SUCCESS' });
+        dispatch({ type: SIGNUP_PROVIDER_SUCCESS });
         dispatch(success(successfulOptions));
 
         setTimeout(() => {
@@ -110,7 +110,7 @@ export const signInWithFacebook = () => {
         }, 2000);
       })
       .catch(err => {
-        dispatch({ type: 'SIGNUP_PROVIDER_ERROR', err });
+        dispatch({ type: SIGNUP_PROVIDER_ERROR, err });
         dispatch(error(unsuccessfulOptions));
       });
   };

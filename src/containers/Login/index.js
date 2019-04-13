@@ -8,7 +8,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { Row, Col } from 'reactstrap';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 import actions from '../../actions';
 import Input from '../../components/Input';
@@ -69,13 +69,22 @@ export class Login extends React.PureComponent {
             </Col>
             <Col xs='12' md='12'>
               <hr />
-              <button
-                className='input-btn'
-                type='submit'
-                onClick={() => login()}
-              >
-                Login
-              </button>
+              <Row className='login-actions'>
+                <Col xs='6' md='6'>
+                  <button
+                    className='input-btn'
+                    type='submit'
+                    onClick={() => login()}
+                  >
+                    Login
+                  </button>
+                </Col>
+                <Col xs='6' md='6' className='text-right'>
+                  <Link className='redirect-link' to={'/forgot-password'}>
+                    Forgot Password?
+                  </Link>
+                </Col>
+              </Row>
             </Col>
           </Col>
           <Col xs='12' md='1'>

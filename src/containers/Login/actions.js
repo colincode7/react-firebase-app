@@ -29,7 +29,7 @@ export const loginChange = (name, value) => {
 export const login = () => {
   return (dispatch, getState, { getFirebase }) => {
     const firebase = getFirebase();
-    dispatch({ type: 'SET_LOGIN_LOADING' });
+    dispatch({ type: SET_LOGIN_LOADING });
 
     const user = getState().login.loginFormData;
 
@@ -49,7 +49,7 @@ export const login = () => {
       .auth()
       .signInWithEmailAndPassword(user.email, user.password)
       .then(() => {
-        dispatch({ type: 'LOGIN_SUCCESS' });
+        dispatch({ type: LOGIN_SUCCESS });
         dispatch(success(successfulOptions));
 
         setTimeout(() => {
@@ -57,11 +57,11 @@ export const login = () => {
         }, 2000);
       })
       .catch(err => {
-        dispatch({ type: 'LOGIN_ERROR', err });
+        dispatch({ type: LOGIN_ERROR, err });
         dispatch(error(unsuccessfulOptions));
 
         setTimeout(() => {
-          dispatch({ type: 'HIDE_LOGIN_ERROR' });
+          dispatch({ type: HIDE_LOGIN_ERROR });
         }, 3000);
       });
   };
@@ -81,7 +81,7 @@ export const signOut = () => {
       .auth()
       .signOut()
       .then(() => {
-        dispatch({ type: 'SIGNOUT_SUCCESS' });
+        dispatch({ type: SIGNOUT_SUCCESS });
         dispatch(info(notifOptions));
       });
   };

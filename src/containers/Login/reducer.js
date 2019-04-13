@@ -32,7 +32,7 @@ const loginReducer = (state = initialState, action) => {
         loginFormData: { ...state.loginFormData, ...action.payload }
       };
       return newState;
-    case 'LOGIN_SUCCESS':
+    case LOGIN_SUCCESS:
       newState = {
         ...state,
         loginError: null,
@@ -43,27 +43,27 @@ const loginReducer = (state = initialState, action) => {
         isLoading: false
       };
       return newState;
-    case 'LOGIN_ERROR':
+    case LOGIN_ERROR:
       newState = {
         ...state,
         loginError: action.err.message,
         isLoading: false
       };
       return newState;
-    case 'SIGNOUT_SUCCESS':
+    case SIGNOUT_SUCCESS:
       newState = {
         ...state,
         signoutError: null,
         isLoading: false
       };
       return newState;
-    case 'SET_LOGIN_LOADING':
+    case SET_LOGIN_LOADING:
       newState = {
         ...state,
         isLoading: true
       };
       return newState;
-    case 'HIDE_LOGIN_ERROR':
+    case HIDE_LOGIN_ERROR:
       newState = {
         ...state,
         loginError: null

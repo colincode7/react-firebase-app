@@ -17,19 +17,19 @@ const initialState = {
 const signupProviderReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
-    case 'SIGNUP_PROVIDER_SUCCESS':
+    case SIGNUP_PROVIDER_SUCCESS:
       newState = {
         ...state,
         isLoading: false
       };
       return newState;
-    case 'SIGNUP_PROVIDER_ERROR':
+    case SIGNUP_PROVIDER_ERROR:
       newState = {
         ...state,
         isLoading: false
       };
       return newState;
-    case 'SET_PROVIDER_LOADING':
+    case SET_PROVIDER_LOADING:
       newState = {
         ...state,
         isLoading: true

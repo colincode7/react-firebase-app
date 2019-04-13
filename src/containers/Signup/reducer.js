@@ -32,7 +32,7 @@ const signupReducer = (state = initialState, action) => {
         signupFormData: { ...state.signupFormData, ...action.payload }
       };
       return newState;
-    case 'SIGNUP_SUCCESS':
+    case SIGNUP_SUCCESS:
       newState = {
         ...state,
         signupError: null,
@@ -45,20 +45,20 @@ const signupReducer = (state = initialState, action) => {
         isLoading: false
       };
       return newState;
-    case 'SIGNUP_ERROR':
+    case SIGNUP_ERROR:
       newState = {
         ...state,
         signupError: action.err.message,
         isLoading: false
       };
       return newState;
-    case 'SET_SIGNUP_LOADING':
+    case SET_SIGNUP_LOADING:
       newState = {
         ...state,
         isLoading: true
       };
       return newState;
-    case 'HIDE_SIGNUP_ERROR':
+    case HIDE_SIGNUP_ERROR:
       newState = {
         ...state,
         signupError: null

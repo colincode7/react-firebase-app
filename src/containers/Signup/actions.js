@@ -27,7 +27,7 @@ export const signupChange = (name, value) => {
 
 export const signUp = () => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
-    dispatch({ type: 'SET_SIGNUP_LOADING' });
+    dispatch({ type: SET_SIGNUP_LOADING });
     const firebase = getFirebase();
     const firestore = getFirestore();
 
@@ -59,16 +59,16 @@ export const signUp = () => {
           });
       })
       .then(() => {
-        dispatch({ type: 'SIGNUP_SUCCESS' });
+        dispatch({ type: SIGNUP_SUCCESS });
         dispatch(success(successfulOptions));
         dispatch(push('/dashboard'));
       })
       .catch(err => {
-        dispatch({ type: 'SIGNUP_ERROR', err });
+        dispatch({ type: SIGNUP_ERROR, err });
         dispatch(error(unsuccessfulOptions));
 
         setTimeout(() => {
-          dispatch({ type: 'HIDE_SIGNUP_ERROR' });
+          dispatch({ type: HIDE_SIGNUP_ERROR });
         }, 3000);
       });
   };

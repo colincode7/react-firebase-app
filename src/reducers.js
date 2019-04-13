@@ -16,6 +16,7 @@ import homepageReducer from './containers/Homepage/reducer';
 import signupReducer from './containers/Signup/reducer';
 import loginReducer from './containers/Login/reducer';
 import signupProviderReducer from './containers/SignupProvider/reducer';
+import forgotPasswordReducer from './containers/ForgotPassword/reducer';
 import navigationReducer from './containers/Navigation/reducer';
 import authenticationReducer from './containers/Authentication/reducer';
 
@@ -28,6 +29,7 @@ const createReducer = history =>
     signup: signupReducer,
     login: loginReducer,
     signupProvider: signupProviderReducer,
+    forgotPassword: forgotPasswordReducer,
     navigation: navigationReducer,
     authentication: authenticationReducer,
     firestore: firestoreReducer,
