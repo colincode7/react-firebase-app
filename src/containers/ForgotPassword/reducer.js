@@ -41,7 +41,10 @@ const forgotPasswordReducer = (state = initialState, action) => {
     case FORGOT_PASSWORD_ERROR:
       newState = {
         ...state,
-        forgotError: action.err.message
+        forgotError: action.err.message,
+        forgotFormData: {
+          email: ''
+        }
       };
       return newState;
     case HIDE_FORGOT_PASSWORD_ERROR:

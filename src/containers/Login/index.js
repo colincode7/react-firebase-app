@@ -28,7 +28,7 @@ export class Login extends React.PureComponent {
       isLoading
     } = this.props;
 
-    if (authentication.uid) return <Redirect to='/' />;
+    if (authentication.uid) return <Redirect to='/dashboard' />;
 
     return (
       <div className='login-form'>

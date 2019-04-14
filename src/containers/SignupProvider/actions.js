@@ -54,10 +54,6 @@ export const signInWithGoogle = () => {
 
         dispatch({ type: SIGNUP_PROVIDER_SUCCESS });
         dispatch(success(successfulOptions));
-
-        setTimeout(() => {
-          dispatch(push('/dashboard'));
-        }, 2000);
       })
       .catch(err => {
         dispatch({ type: SIGNUP_PROVIDER_ERROR, err });
@@ -104,10 +100,6 @@ export const signInWithFacebook = () => {
 
         dispatch({ type: SIGNUP_PROVIDER_SUCCESS });
         dispatch(success(successfulOptions));
-
-        setTimeout(() => {
-          dispatch(push('/dashboard'));
-        }, 2000);
       })
       .catch(err => {
         dispatch({ type: SIGNUP_PROVIDER_ERROR, err });

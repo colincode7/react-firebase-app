@@ -39,12 +39,6 @@ export const signUp = () => {
       autoDismiss: 1
     };
 
-    const unsuccessfulOptions = {
-      title: 'Hey, Please try to signup again!',
-      position: 'tr',
-      autoDismiss: 1
-    };
-
     firebase
       .auth()
       .createUserWithEmailAndPassword(user.email, user.password)
@@ -55,21 +49,46 @@ export const signUp = () => {
           .set({
             firstName: user.firstName,
             lastName: user.lastName,
-            initials: user.firstName + user.lastName
+            initials: user.firstName + ' ' + user.lastName
           });
       })
       .then(() => {
         dispatch({ type: SIGNUP_SUCCESS });
         dispatch(success(successfulOptions));
-        dispatch(push('/dashboard'));
       })
       .catch(err => {
-        dispatch({ type: SIGNUP_ERROR, err });
-        dispatch(error(unsuccessfulOptions));
-
-        setTimeout(() => {
-          dispatch({ type: HIDE_SIGNUP_ERROR });
-        }, 3000);
+        dispatch(handleSignupError(err));
       });
+  };
+};
+
+export const handleSignupError = err => {
+  const unsuccessfulOptions = {
+    title: 'Hey, Please try to signup again!',
+    position: 'tr',
+    autoDismiss: 1
+  };
+
+  return (dispatch, getState) => {
+    dispatch({ type: SIGNUP_ERROR, err });
+    dispatch(error(unsuccessfulOptions));
+
+    setTimeout(() => {
+      dispatch({ type: HIDE_SIGNUP_ERROR });
+    }, 3000);
+
+    switch (err.code) {
+      case 'auth/invalid-email':
+        getState().signup.signupFormData.email = '';
+        break;
+      case 'auth/weak-password':
+        getState().signup.signupFormData.password = '';
+        break;
+      case 'auth/email-already-in-use':
+        getState().signup.signupFormData.email = '';
+        break;
+      default:
+        return null;
+    }
   };
 };

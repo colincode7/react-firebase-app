@@ -39,30 +39,15 @@ export const login = () => {
       autoDismiss: 1
     };
 
-    const unsuccessfulOptions = {
-      title: 'Hey, Please try to login in again!',
-      position: 'tr',
-      autoDismiss: 1
-    };
-
     firebase
       .auth()
       .signInWithEmailAndPassword(user.email, user.password)
       .then(() => {
         dispatch({ type: LOGIN_SUCCESS });
         dispatch(success(successfulOptions));
-
-        setTimeout(() => {
-          dispatch(push('/dashboard'));
-        }, 2000);
       })
       .catch(err => {
-        dispatch({ type: LOGIN_ERROR, err });
-        dispatch(error(unsuccessfulOptions));
-
-        setTimeout(() => {
-          dispatch({ type: HIDE_LOGIN_ERROR });
-        }, 3000);
+        dispatch(handleLoginError(err));
       });
   };
 };
@@ -84,5 +69,33 @@ export const signOut = () => {
         dispatch({ type: SIGNOUT_SUCCESS });
         dispatch(info(notifOptions));
       });
+  };
+};
+
+export const handleLoginError = err => {
+  const unsuccessfulOptions = {
+    title: 'Hey, Please try to login in again!',
+    position: 'tr',
+    autoDismiss: 1
+  };
+
+  return (dispatch, getState) => {
+    dispatch({ type: LOGIN_ERROR, err });
+    dispatch(error(unsuccessfulOptions));
+
+    setTimeout(() => {
+      dispatch({ type: HIDE_LOGIN_ERROR });
+    }, 3000);
+
+    switch (err.code) {
+      case 'auth/user-not-found':
+        getState().login.loginFormData.email = '';
+        break;
+      case 'auth/wrong-password':
+        getState().login.loginFormData.password = '';
+        break;
+      default:
+        return null;
+    }
   };
 };
