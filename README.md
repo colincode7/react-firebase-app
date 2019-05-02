@@ -11,7 +11,7 @@ This boilerplate is simple and easy to use, users can login or signup and be red
   * Redux Thunk middleware to handle asynchronous actions in Redux
   * SASS to style the components
 
-![React Firebase App](/src/images/React-Firebase.gif)
+![React Firebase App](/src/images/React-Firebase-App.gif)
 
 ## Install
 
