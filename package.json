@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mohamedsamara/React-Firebase-App.git"
+    "url": "git+https://github.com/mohamedsamara/react-firebase-app.git"
   },
   "keywords": [
     "react",
@@ -23,9 +23,9 @@
   "author": "Mohamed Samara (https://github.com/mohamedsamara)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mohamedsamara/React-Firebase-App/issues"
+    "url": "https://github.com/mohamedsamara/react-firebase-app/issues"
   },
-  "homepage": "https://github.com/mohamedsamara/React-Firebase-App",
+  "homepage": "https://github.com/mohamedsamara/react-firebase-app#readme",
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/plugin-proposal-class-properties": "^7.3.4",

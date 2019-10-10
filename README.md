@@ -18,7 +18,7 @@ This boilerplate is simple and easy to use, users can login or signup and be red
 Some basic Git commands are:
 
 ```
-$ git clone https://github.com/mohamedsamara/React-Firebase-App.git
+$ git clone https://github.com/mohamedsamara/react-firebase-app.git
 $ cd project
 $ npm install
 
