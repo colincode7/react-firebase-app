@@ -2,16 +2,14 @@
 
 ## Description
 
-This boilerplate is simple and easy to use, users can login or signup and be redirected to their dashboard when authenticated, otherwise they only can see the homepage. Users can login or signup using their own email and password or signup through Google or Facebook account.
+This is a simple application using React and Firebase with authentication. Users can sign in using an email and password or through their Google and Facebook account.
  
 * features:
   * React for displaying UI components
   * Redux to store the entire application's state
-  * Firebase for authentication, authorization and database
+  * Firebase for authentication, authorization, database and hosting
   * Redux Thunk middleware to handle asynchronous actions in Redux
-  * SASS to style the components
-
-![React Firebase App](/src/images/React-Firebase-App.gif)
+  * Sass to style the components
 
 ## Install
 
@@ -26,11 +24,24 @@ $ npm install
 
 ## Start
 
-npm start
+```
+$ npm start
+
+```
 
 ## Simple build for production
 
-npm run build
+```
+$ npm run build
+
+```
+
+## Run the application for production
+
+```
+$ npm run serve
+
+```
 
 ## Languages & tools
 
@@ -44,4 +55,4 @@ npm run build
 
 - [Reactstrap](https://reactstrap.github.io/)
 
-- [SASS](https://sass-lang.com/)
+- [Sass](https://sass-lang.com/)

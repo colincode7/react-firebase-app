@@ -12,8 +12,8 @@ const Footer = props => {
   return (
     <footer>
       <Container>
-        <div className='copyright'>
-          <span>React Firebase Boilerplate</span>
+        <div className="copyright">
+          <span>React Firebase Application</span>
         </div>
       </Container>
     </footer>

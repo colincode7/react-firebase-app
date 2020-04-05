@@ -2,8 +2,16 @@
 
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const dotenv = require('dotenv');
 
 const commonPaths = require('./paths');
+
+const env = dotenv.config().parsed;
+
+const envKeys = Object.keys(env).reduce((prev, next) => {
+  prev[`process.env.${next}`] = JSON.stringify(env[next]);
+  return prev;
+}, {});
 
 module.exports = {
   entry: ['@babel/polyfill', commonPaths.entryPath],
@@ -15,36 +23,12 @@ module.exports = {
         exclude: /(node_modules)/
       },
       {
-        test: /\.(html)$/,
+        test: /\.html$/,
         exclude: /node_modules/,
         use: {
           loader: 'html-loader',
           options: { minimize: true }
         }
-      },
-      {
-        test: /\.(png|jpg|jpeg|gif|svg|ico)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              outputPath: commonPaths.imagesFolder,
-              name: '[name].[hash].[ext]'
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              outputPath: commonPaths.fontsFolder,
-              name: '[name].[hash].[ext]'
-            }
-          }
-        ]
       }
     ]
   },
@@ -55,6 +39,7 @@ module.exports = {
     }
   },
   plugins: [
+    new webpack.DefinePlugin(envKeys),
     new webpack.ProgressPlugin(),
     new CopyWebpackPlugin([{ from: 'src/images', to: 'images' }], {
       copyUnmodified: true

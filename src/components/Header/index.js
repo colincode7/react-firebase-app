@@ -27,41 +27,41 @@ const Header = props => {
 
   return (
     <Navbar
-      color='light'
+      color="light"
       sticky={'top'}
-      className='shadow-sm py-0 border-bottom'
+      className="shadow-sm py-0 border-bottom"
       light
-      expand='md'
+      expand="md"
     >
-      <NavbarBrand tag={Link} to='/'>
-        React Firebase Boilerplate
+      <NavbarBrand tag={Link} to="/">
+        React Firebase
       </NavbarBrand>
       <NavbarToggler onClick={toggleMenu} />
       <Collapse isOpen={isMenuOpen} navbar>
-        <Nav className='ml-auto' navbar>
+        <Nav className="ml-auto" navbar>
           {authentication.uid ? (
             <Nav navbar>
               <NavItem>
                 <NavLink>{user.firstName}</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} to='/dashboard'>
+                <NavLink tag={Link} to="/dashboard">
                   Dashboard
                 </NavLink>
               </NavItem>
-              <NavItem className='log-out'>
+              <NavItem className="log-out">
                 <NavLink onClick={signOut}>Log Out</NavLink>
               </NavItem>
             </Nav>
           ) : (
             <Nav navbar>
               <NavItem>
-                <NavLink tag={Link} to='/login'>
+                <NavLink tag={Link} to="/login">
                   Login
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} to='/signup'>
+                <NavLink tag={Link} to="/signup">
                   SignUp
                 </NavLink>
               </NavItem>

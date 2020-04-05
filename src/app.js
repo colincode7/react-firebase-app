@@ -1,7 +1,7 @@
 /**
  *
  * app.js
- * This is the application component. setup and boilerplate
+ * 
  */
 
 import React from 'react';

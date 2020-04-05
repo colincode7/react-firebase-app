@@ -8,9 +8,8 @@ const commonPaths = require('./paths');
 module.exports = {
   mode: 'development',
   output: {
-    filename: '[name].js',
     path: commonPaths.outputPath,
-    chunkFilename: '[name].js'
+    filename: '[name].js'
   },
   module: {
     rules: [
@@ -42,12 +41,36 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg|ico)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: commonPaths.imagesFolder,
+              name: '[name].[ext]'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: commonPaths.fontsFolder,
+              name: '[name].[ext]'
+            }
+          }
+        ]
       }
     ]
   },
   devServer: {
-    disableHostCheck: true,
     historyApiFallback: true,
+    disableHostCheck: false,
     contentBase: commonPaths.outputPath,
     inline: true,
     compress: true,

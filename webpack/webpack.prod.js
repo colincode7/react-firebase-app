@@ -12,9 +12,9 @@ const commonPaths = require('./paths');
 module.exports = {
   mode: 'production',
   output: {
-    filename: `${commonPaths.jsFolder}/[name].[hash].js`,
     path: commonPaths.outputPath,
-    chunkFilename: '[name].[chunkhash].js'
+    filename: `${commonPaths.jsFolder}/[name].[hash].js`,
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -41,10 +41,35 @@ module.exports = {
             loader: 'sass-loader'
           }
         ]
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg|ico)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: commonPaths.imagesFolder,
+              publicPath: 'images',
+              name: '[name].[hash].[ext]'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: commonPaths.fontsFolder,
+              publicPath: 'fonts',
+              name: '[name].[hash].[ext]'
+            }
+          }
+        ]
       }
     ]
   },
-
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
@@ -89,23 +114,22 @@ module.exports = {
       chunkFilename: '[id].[hash].css'
     }),
     new Webpack.optimize.ModuleConcatenationPlugin(),
-
     new WebpackPwaManifest({
-      name: 'React Firebase Boilerplate',
-      short_name: 'React Firebase Boilerplate',
-      description: 'React Firebase Boilerplate!',
+      name: 'React Firebase Application',
+      short_name: 'ReactFirebase',
+      description: 'React Firebase Application!',
       background_color: '#fafafa',
       theme_color: '#b1624d',
       inject: true,
       ios: true,
       icons: [
         {
-          src: commonPaths.imagesPath + '/icon-512x512.jpg',
+          src: commonPaths.imagesPath + '/pwa.png',
           destination: commonPaths.imagesFolder,
           sizes: [72, 96, 128, 144, 192, 384, 512]
         },
         {
-          src: commonPaths.imagesPath + '/icon-512x512.jpg',
+          src: commonPaths.imagesPath + '/pwa.png',
           destination: commonPaths.imagesFolder,
           sizes: [120, 152, 167, 180],
           ios: true
@@ -113,7 +137,6 @@ module.exports = {
       ]
     })
   ],
-
   devtool: 'source-map',
   stats: 'errors-only',
   bail: true
