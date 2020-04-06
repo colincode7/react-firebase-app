@@ -35,7 +35,7 @@ button[type='reset'] {
 // end input button styles
 
 .input-box {
-  margin: 10px;
+  margin: 10px 0px 10px 0px;
 }
 
 .input-box label {
@@ -45,5 +45,13 @@ button[type='reset'] {
 
 .input-btn {
   max-width: 100px;
+  width: 100%;
   background-color: $theme-blue;
+  @include media-breakpoint-down(sm) {
+    max-width: 100%;
+  }
+
+  &:hover {
+    background-color: $theme-light-blue;
+  }
 }

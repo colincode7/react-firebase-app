@@ -1,12 +1,9 @@
 .signup-form {
-  padding: 10px;
-  border: $border-default;
-}
-
-.signup-form h1 {
-  padding-left: 30px;
-  color: $theme-blue !important;
-  font-weight: $font-weight-bold-light;
+  h1 {
+    padding-left: 15px;
+    color: $theme-blue !important;
+    font-weight: $font-weight-bold-light;
+  }
 }
 
 // sign up with social providers
@@ -16,7 +13,6 @@
   justify-content: center;
   align-items: center;
   border: $border-default;
-  width: 65%;
   margin: 10px auto;
   padding: 10px;
   cursor: pointer;
@@ -28,7 +24,6 @@
 
 .google,
 .facebook {
-  font-size: $font-size-medium;
   margin-left: 20px;
 
   &:hover {
@@ -39,9 +34,11 @@
 .google-icon {
   @include icon($google, 40px, 40px);
   background-size: 100%;
+  border-radius: 50%;
 }
 
 .facebook-icon {
-  @include icon($facebook, 30px, 30px);
+  @include icon($facebook, 40px, 40px);
   background-size: 100%;
+  border-radius: 50%;
 }

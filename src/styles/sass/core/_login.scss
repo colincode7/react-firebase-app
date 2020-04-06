@@ -1,12 +1,9 @@
 .login-form {
-  padding: 10px;
-  border: $border-default;
-}
-
-.login-form h1 {
-  padding-left: 30px;
-  color: $theme-blue !important;
-  font-weight: $font-weight-bold-light;
+  h1 {
+    padding-left: 15px;
+    color: $theme-blue !important;
+    font-weight: $font-weight-bold-light;
+  }
 }
 
 .log-out {

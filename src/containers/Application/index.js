@@ -15,7 +15,7 @@ import actions from '../../actions';
 // routes
 import LoginPage from '../Login';
 import SignupPage from '../Signup';
-import HomePage from '../Homepage';
+import Homepage from '../Homepage';
 import Dashboard from '../Dashboard';
 import Navigation from '../Navigation';
 import Authentication from '../Authentication';
@@ -37,7 +37,7 @@ export class Application extends React.PureComponent {
           <Container>
             <div className='wrapper'>
               <Switch>
-                <Route exact path='/' component={HomePage} />
+                <Route exact path='/' component={Homepage} />
                 <Route path='/login' component={LoginPage} />
                 <Route path='/signup' component={SignupPage} />
                 <Route path='/forgot-password' component={ForgotPassword} />

@@ -1,7 +1,6 @@
 // utils styles
 
 // separation styles
-
 .separation {
   @include flex();
   flex-direction: column;
@@ -29,7 +28,6 @@
 }
 
 // popup background
-
 .popup-background {
   cursor: pointer;
   background-color: $dark-overflow-bg;
@@ -39,4 +37,17 @@
   height: 100%;
   z-index: 1021;
   width: 100%;
+}
+
+// message notifications
+.message-box {
+  height: 50px;
+  margin-bottom: 15px;
+
+  .alert {
+    padding-left: 15px;
+  }
+  p {
+    margin: 0;
+  }
 }

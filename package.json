@@ -17,7 +17,7 @@
   "keywords": [
     "react",
     "redux",
-    "thunk",
+    "redux-thunk",
     "firebase",
     "sass"
   ],

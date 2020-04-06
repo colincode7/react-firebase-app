@@ -28,9 +28,9 @@ export class ForgotPassword extends React.PureComponent {
 
     return (
       <div className='forgot-password-form'>
+        <Message error={forgotError} type={'danger'} />
         <h1>Forgot Password</h1>
         <hr />
-        {forgotError != null && <Message error={forgotError} type={'danger'} />}
         <Row>
           <Col xs='12' md='12'>
             <Col xs='12' md='12'>

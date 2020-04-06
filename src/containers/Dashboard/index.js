@@ -13,7 +13,7 @@ export class Dashboard extends React.PureComponent {
   componentDidMount() {}
 
   render() {
-    return <div className='dashboard'>This is Dashboard</div>;
+    return <h2 className='dashboard'>This is Dashboard</h2>;
   }
 }
 

@@ -1,0 +1,26 @@
+// header styles
+
+.navbar-theme {
+  background-color: $theme-light-blue;
+
+  .nav-link,
+  .navbar-brand {
+    color: $white !important;
+  }
+
+  .navbar-toggler {
+    .navbar-toggler-icon {
+      @include icon($bars, 25px, 25px);
+      background-size: 100%;
+    }
+  }
+
+  .navbar-brand {
+    color: $white !important;
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold-light;
+    @include media-breakpoint-down(sm) {
+      font-size: $font-size-medium;
+    }
+  }
+}

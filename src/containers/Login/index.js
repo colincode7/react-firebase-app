@@ -38,9 +38,9 @@ export class Login extends React.PureComponent {
             <div className='popup-background' />
           </div>
         )}
+        <Message error={loginError} type={'danger'} />
         <h1>Login</h1>
         <hr />
-        {loginError != null && <Message error={loginError} type={'danger'} />}
         <Row>
           <Col xs='12' md='6'>
             <Col xs='12' md='12'>

@@ -12,10 +12,11 @@ const Message = props => {
 
   return (
     <div className='message-box'>
-      <Alert color={type}>
-        <p>{error}</p>
-      </Alert>
-      <hr />
+      {error != null && (
+        <Alert color={type}>
+          <p>{error}</p>
+        </Alert>
+      )}
     </div>
   );
 };

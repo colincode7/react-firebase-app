@@ -27,14 +27,12 @@ const Header = props => {
 
   return (
     <Navbar
-      color="light"
       sticky={'top'}
-      className="shadow-sm py-0 border-bottom"
-      light
+      className="shadow-sm border-bottom navbar-theme"
       expand="md"
     >
       <NavbarBrand tag={Link} to="/">
-        React Firebase
+        React Firebase Application
       </NavbarBrand>
       <NavbarToggler onClick={toggleMenu} />
       <Collapse isOpen={isMenuOpen} navbar>

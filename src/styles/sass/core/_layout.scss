@@ -6,9 +6,9 @@ html {
 
 body {
   background-color: $white;
-  color: $font-color !important;
+  color: $font-color;
   font-family: $font-family-body;
-  font-size: $font-size-small;
+  font-size: $font-size-large;
   font-weight: $font-weight-normal;
   height: 100%;
   letter-spacing: $letter-spacing;
@@ -16,6 +16,10 @@ body {
   margin: 0;
   padding: 0;
   position: relative;
+
+  @include media-breakpoint-down(sm) {
+    font-size: $font-size-small;
+  }
 }
 
 .application {
@@ -51,8 +55,11 @@ span,
 label,
 a,
 p {
-  font-size: $font-size-small;
+  font-size: $font-size-large;
   text-transform: capitalize;
+  @include media-breakpoint-down(sm) {
+    font-size: $font-size-small;
+  }
 }
 
 label {
@@ -61,11 +68,11 @@ label {
 }
 
 a {
-  color: $font-color !important;
-  text-decoration: none !important;
+  color: $font-color;
+  text-decoration: none;
 
   &:hover {
-    color: $font-hover-color !important;
+    color: $font-hover-color;
   }
 
   &:focus {
@@ -87,9 +94,12 @@ h6,
 .h6 {
   color: $font-heading-color !important;
   font-family: $font-family-heading;
-  font-size: $font-size-heading-small !important;
-  line-height: $line-height !important;
+  font-size: $font-size-heading-large;
+  line-height: $line-height;
   text-transform: capitalize;
+  @include media-breakpoint-down(sm) {
+    font-size: $font-size-heading-small;
+  }
 }
 
 /* scrollbar styles */
