@@ -12,8 +12,10 @@ package-lock.json
 # config file
 .vscode
 .env  
+.firebase 
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log* 
+firebase-debug.log*

@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "react-firebase-app",
+    "staging": "react-firebase-app-9a565"
+  }
+}

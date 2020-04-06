@@ -22,6 +22,17 @@ $ npm install
 
 ```
 
+## Firebase Hosting
+
+```
+
+$ npm run deploy
+
+> Make sure Firebase CLI is installed, and project is initialized
+> firebase.json and .firebaserc will be generated
+
+```
+
 ## Start
 
 ```
