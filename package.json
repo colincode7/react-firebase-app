@@ -23,7 +23,7 @@
     "sass"
   ],
   "author": "Mohamed Samara (https://github.com/mohamedsamara)",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mohamedsamara/react-firebase-app/issues"
   },
